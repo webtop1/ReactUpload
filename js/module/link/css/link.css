@@ -1,0 +1,66 @@
+.link_body { font-size: 12px;}
+.link_tab { border-bottom: solid 1px #E0E0E0;padding: 0 0 0 20px; margin-top: 18px;}
+.link_tab li{display: inline-block; border:solid 1px #E0E0E0;border-bottom: none; background: #F6F6F6; font-weight: normal; list-style: none; width: 80px;  line-height: 30px; text-align: center;margin: 0px; cursor: pointer;}
+/*.link_body .link_tab li:hover {background: #FFFFFF;font-weight: bold;margin-bottom: -1px;border-bottom:solid 1px #ffffff;}*/
+.link_body .link_tab .link_selected {background: #FFFFFF; color: #575757;font-weight: bold;margin-bottom: -1px;border-bottom:solid 1px #ffffff;}
+.link_body .link_mail {display: none;}
+.link_body .link_content{width:436px;position: relative; margin: 0 auto;border-radius: 3px;}
+.link_err_msg{color: #ec2225;margin-left: 5px;}
+
+/***链接分享***/
+.link_share{padding: 24px 0;}
+.link_share h1{font-size: 14px;font-weight: normal;margin-top: 23px; margin-bottom: 12px;color: #7f7f7f}
+.link_url_span{width: 310px; height: 36px; padding-left: 10px;text-align: left; border: solid 1px #E0E0E0; border-radius: 3px; display: inline-block;}
+.link_url_span a{text-decoration: underline;}
+.link_button_copy{display:inline-block;vertical-align:middle;line-height: 36px;width: 107px;border-radius: 3px; background: #2A7EF8;color: #fff; border:solid 1px #1d64d0; cursor: pointer;}
+.link_options{border:solid 1px #efefef;padding: 5px 14px 0px 14px;border-radius: 3px; }
+.link_row {line-height: 33px;}
+.link_row.relative{line-height: 33px; position: relative;}
+.link_row .col{ display: inline-block;width: 103px;}
+.link_label_pwd,.link_span_date{display: inline-block;width: 10px;}
+.link_date{background: url("../img/icon.png") -70px 3px no-repeat; cursor: pointer; display: inline-block;width: 25px;height:22px;vertical-align: middle;position: absolute;left: 210px;top: 5px;}
+.link_row.textarea{line-height: 30px;}
+.link_date_row input[type=checkbox],.link_row input[type=checkbox]{cursor:pointer;width: 16px; height: 16px;vertical-align:middle;margin-right:5px;}
+.link_row input[type=checkbox]:hover {opacity: 0.5;}
+.link_date_row .none,.link_row .none{display: none;}
+.link_ml25{margin-right: 20px;}
+.link_txt_password {width:95px;margin-left: 5px;overflow:hidden;text-overflow:ellipsis;display: none; vertical-align: middle; white-space: nowrap;}
+.link_txt_input { width: 110px;height: 22px;}
+.link_line{height:0px; border-top: solid 1px #E4E4E4; border-right:0px; border-bottom:0px; border-left:0px;}
+.link_body .link_share textarea{border: none; width: 407px;height: 60px; resize: none;}
+.link_share textarea:hover{background: cornsilk;resize:inherit;height: 60px;}
+.link_share input[type='text']{border: solid 1px #c9c9c9;font-size: 13px;text-indent: 5px;}
+.link_em_days {color: #bcbcbc;}
+/*邮件分享Tab*/
+.link_body .link_mail .link_transfer_addr{display: block;min-height: 34px;margin: 0 auto;text-align: left;border: solid 1px #E0E0E0;border-radius: 3px;padding: 2px;line-height:2.6 ;font-size: 13px;word-break: break-all;}
+.link_body .link_mail .link_transfer_addr .addr{background-color: #EEEEEE;padding: 0 5px;border-radius: 5px;margin: 2px;display: inline-block;}
+.link_body .link_mail .link_transfer_addr .addr.error{border: #fd0402 1px solid;}
+.link_body .link_mail .link_transfer_addr .addr i{display: inline-block;width: 10px;height: 10px;margin-left: 8px;background: url(../img/cancel.png) no-repeat;background-position: 0 0;cursor: pointer;}
+.link_body .link_mail .link_transfer_addr .addr i.error{color: #fd0402;background-position: -10px 0;}
+/*.link_body .link_mail .link_transfer_addr p{display: inline-block;}*/
+.link_body .link_mail .link_transfer_addr p input{border: 0;outline: none;text-indent: 10px;width: 100%;}
+.link_body .link_mail .mail_query_box{position: absolute;background-color: #FFFFFF;width: 406px;height: 149px;border: solid 1px #E0E0E0;border-top: 0;padding: 14px;overflow: auto;display: none;color: #666666;}
+.link_body .link_mail .mail_query_box #history_head{display: none;}
+.link_body .link_mail .mail_query_box #history_head #remove_all{display: inline-block;float: right;color: #adadad;text-decoration: underline;}
+.link_body .link_mail .mail_query_box input{cursor: pointer;width: 16px;height: 16px;vertical-align: middle;margin-right: 5px;}
+.link_body .link_mail .mail_query_box ul{line-height: 2.5;    margin-top: 6px;}
+.link_body .link_mail .mail_query_box ul#historyList{border-bottom: 1px solid #ccc;display: none;}
+.link_body .link_mail .mail_query_box ul#historyList+div{margin-top: 14px;}
+.link_body .link_mail .mail_query_box ul span{margin-left: 5px;}
+.link_body .link_mail .mail_query_box ul li .checkbox{display: inline-block;width: 16px;height: 16px;background-color: #ccc;font-size: 16px;vertical-align: middle;text-align: center;line-height: 1;}
+.link_body .link_mail .mail_query_box ul li .checkbox.checked{background-color: blue;}
+.link_body .link_mail .link_transfer_msg{display: block;height: 151px;margin: 30px auto 0;border: solid 1px #efefef;}
+.link_body .link_mail .link_btn{text-align: right;}
+.link_body .link_mail .link_btn .btn{display: inline-block;width: 105px;margin:14px 0 32px;background: #0088CC;text-align: center;font-size: 12px;color: #fff;line-height: 3;cursor: pointer;}
+.link_body .link_mail .link_btn .btn.link_send{background: #e5e5e5;border: #d4d4d4 1px solid;color: #666666;}
+.link_body .link_mail .link_btn .btn.link_cancel{background: #e5e5e5;border: #d4d4d4 1px solid;color: #666666;margin-left: 20px;}
+.link_body .link_mail .link_btn .btn.link_cancel:link{background: #e5e5e5;border: #d4d4d4 1px solid;color: #666666;}
+.link_body .link_mail .link_btn .btn.link_cancel:visited{background:#2A7EF8;border: #2872dd 1px solid;color: #ffffff;}
+.link_body .link_mail .link_btn .btn.link_cancel:hover{background:#2A7EF8;border: #2872dd 1px solid;color: #ffffff;}
+.link_body .link_mail .link_btn .btn.link_cancel:active{background:#2A7EF8;border: #2872dd 1px solid;color: #ffffff;}
+.link_body .link_mail .link_transfer_msg .link_defaultInfo{border-bottom: 1px solid #ccc;padding-bottom: 10px;margin: 10px 10px 0;color: #a9a9a9;}
+.link_body .link_mail .link_transfer_msg .link_defaultInfo .line2{margin-top: 10px;}
+.link_body .link_mail .link_transfer_msg .link_mail_instruction{margin: 10px 10px 0;resize: none;border: 0;width: 416px;line-height: 1.5;height: 84px;}
+.link_body .link_mail .link_transfer_msg .link_mail_instruction:focus{background:cornsilk;height: 84px;}
+.link_body .link_mail .link_label{margin: 24px 0 7px;font-size: 14px;color: #7b7b7b;}
+.link_body .link_mail i{font-style: normal;}

@@ -1,0 +1,61 @@
+;define('js/module/upload/main', function(require, exports){
+    var _ = $.i18n.prop;
+    var SWF = require('upload/src/SWF');
+        require("upload/css/task.css");
+        require("jquery");
+        require('i18n');
+
+    function main(options){
+        this.options=options;
+        for(var o in options){
+            this[o]=options[o];
+        }
+        this.init();
+    }
+
+    $.extend(main.prototype, {
+        init: function(){
+           this.render();
+        },
+        render:function(){
+            var self = this;
+            if(!self.isSupportHTML5()){
+                require.async('upload/src/upload_html5',function (upload_html5) {
+                    self.uploadHtml5 = new upload_html5(self.options);
+                })
+            }else {
+                self.Plug = new SWF('swfupload-holder', self).build();
+            }
+        },
+        isSupportHTML5:function () {
+            try {
+                if (typeof FileReader == "undefined") return false;
+                if (typeof Blob == "undefined") return false;
+                var blob = new Blob();
+                if (!blob.slice && !blob.webkitSlice) return false;
+                if (!('draggable' in document.createElement('span'))) return false;
+            } catch (e) {
+                return false;
+            }
+            return true;
+        },
+        show:function(){
+            $('#container').show();
+        },
+        hide:function(){
+            $('#container').hide();
+        },
+        addFile:function(params){
+            if (!uploadlist.files) {
+                uploadlist.files = [];
+            }
+            uploadlist.files.push(params);
+        },
+        updateFilelist:function(params){
+
+        }
+    });
+
+    return main;
+
+});

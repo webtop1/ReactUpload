@@ -1,0 +1,374 @@
+.upload-task-list{
+    width: 700px;
+    right: 52px;
+    background: #fff;
+    height: 370px;
+    border: 1px solid #d2d2d2;
+    font-family: "微软雅黑", "microsoft yahei";
+    font-size: 14px;
+    color: #a0a0a0;
+    z-index:15;
+    box-shadow: 0 0 7px #CCCCCC;
+}
+.upload-task-list ul{height:300px;padding: 0px; margin: 0px; overflow-y: auto;}
+.upload-task-list ul li {list-style: none;}
+.upload-task-list .f-l{
+    float: left;
+}
+.col-icon{
+	width: 50px;
+	display: inline-block;
+	background-image: url(../img/icon-file@20x20.png);
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	margin: 8px 0 0 20px;
+}
+.col-bar-filename{ width: 251px; margin-left: 21px;}
+.col-filename{ width: 230px;}
+.col-progress{width: 170px;}
+.col-size{width: 80px;}
+.col-time{width: 85px;}
+.col-operate{width: 70px;}
+
+.upload-task-list a {cursor: pointer;}
+
+.upload-task-list .f-r{
+    float: right;
+}
+.upload-task-list .bar-line-5{
+    height: 5px;
+    background: #157bf8;
+}
+.upload-task-list .bar-title{
+    height:43px;
+    line-height: 43px;
+    position: relative;
+    background-color: #f1f3f6;
+    color: #575757;
+	border-bottom:1px solid #d2d2d2;
+}
+.upload-task-list .bar-title .op span{
+	background: url(../img/dialog_operate.png);
+	vertical-align: middle;
+}
+.upload-task-list .bar-title .op span#set-min{
+	width: 27px;
+	height: 27px;
+	background-position: 0 -28px;
+    margin-right: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+.upload-task-list .bar-title .op span#set-min:hover{
+	background-position: -27px -27px;
+}
+.upload-task-list .bar-title .op #set-min:active{
+	background-position: -81px -27px;
+}
+.upload-task-list .bar-title .op #close-upload-task-list{
+	width: 27px;
+	height: 27px;
+	background-position: 0 -55px;
+    margin-right: 19px;
+    display: inline-block;
+    cursor: pointer;
+}
+.upload-task-list .bar-title .op #close-upload-task-list:hover{
+	background-position: -27px -54px;
+}
+.upload-task-list .bar-title .op #close-upload-task-list:active{
+	background-position: -81px -54px;
+}
+.upload-task-list .min-progress{
+    position: absolute;
+    width: 300px;
+    z-index: -1;
+    height: 43px;
+    background: #d2e6ff;
+    left: 0px;
+    top:0px;
+}
+.upload-task-list .max-title{
+    padding-left: 21px;
+}
+
+.upload-task-list .line-1{
+    border-top:1px solid #d1d1d1;
+}
+.upload-task-list .line-2{
+    height: 1px;
+    border-top:1px solid #f3f3f3;
+}
+.upload-task-list .task-title{
+    height: 30px;
+    line-height: 30px;
+    font-size:14px;
+    color: #585858;
+	border-bottom:1px solid #d2d2d2;
+}
+.upload-task-list .file{
+    margin-left: 21px;
+    width: 210px;
+}
+.upload-task-list .progress{
+    width: 128px;
+    overflow: hidden;
+    white-space:nowrap;
+    margin-left: 20px;
+}
+.upload-task-list .progress.error{
+	width:258px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+.upload-task-list .size{
+    width:130px;
+    height: 100%;
+    overflow: hidden;
+    white-space:nowrap;
+}
+.upload-task-list .action{
+	width: 102px;
+}
+.upload-task-list .state{
+    width: 130px;
+}
+.upload-task-list .pause-all{
+	margin-left: 10px;
+}
+.upload-task-list .task-title .time{
+    width: 102px;
+    height: 30px;
+	text-align:left;
+	white-space: nowrap;
+}
+.upload-task-list .file-list{
+    overflow-x:hidden;
+    overflow-y: auto;
+    height: 293px;
+    font-size:12px;
+}
+.upload-task-list .task-file{
+    height:36px;
+    border-bottom:1px #F3F3F3 solid;
+    line-height: 36px;
+    position: relative;
+    clear:both;
+    color: #949494;
+}
+.upload-task-list .task-file .icon-file{
+	margin: 10px 0 0 20px ;
+	width: 20px;
+	height: 20px;
+}
+
+.upload-task-list .task-file .time{
+    width:107px;
+    height: 100%;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.upload-task-list .task-file .filename{
+	color: #585858;
+    margin-left:15px;
+    width: 176px;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.upload-task-list .task-file .state{
+	width: 130px;
+	height: 100%;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.upload-task-list .task-file .state .complete_pic{
+	background: url(/js/module/upload/img/dialog_operate.png) no-repeat;
+	background-position:0 -81px;
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	margin-top: 5px;
+	margin-left: -1px;
+}
+.upload-task-list .task-file .error,
+.upload-task-list .task-file .cancel{
+	color: #e36507;
+}
+.upload-task-list .task-file .error_color{color: #FF0000;}
+.upload-task-list .task-file .max-progress{
+    height: 36px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0px;
+    background: #d8e8ff;
+    z-index:-1;
+}
+.upload-task-list .btn{
+    text-decoration: none;
+    color: #157bf8;
+    font-size: 14px;
+}
+.upload-task-list .opBox {
+	height: 100%;
+	margin-left:14px;
+	float:left;
+}
+.upload-task-list .op-btn{
+	width:17px;
+	height:17px;
+	margin:10px 9px 0;
+	background:url("/js/module/upload/img/sprite_operate_btn.png") -2px -45px no-repeat;
+	cursor: pointer;
+}
+.upload-task-list .upload-success{	
+	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px 0px;
+}
+.upload-task-list .upload-cancel{
+	
+	background-position: -3px -46px;
+}
+.upload-task-list .open-file{
+	
+	background-position: -3px -90px;
+	display: none;
+}
+.upload-task-list .open-file:hover{
+	
+	background-position: -24px -90px;
+}
+.upload-task-list .open-folder{
+	
+	background-position: -3px -113px;
+	display: none;
+}
+.upload-task-list .open-folder:hover{
+	background-position: -24px -113px;
+}
+.upload-task-list .upload-cancel:hover{
+	background-position: -24px -46px;
+}
+.upload-task-list .upload-pause {	
+	background-position: -3px -2px;
+}
+.upload-task-list .upload-pause:hover {
+	background-position: -24px -2px;
+}
+.upload-task-list .upload-continue {	
+	background-position: -3px -24px;
+	display: none;
+}
+.upload-task-list .upload-continue:hover {
+	background-position: -24px -24px;
+}
+.upload-task-list .upload-repeat {	
+	background-position: -3px -68px;
+	display: none;
+}
+.upload-task-list .upload-repeat:hover {
+	background-position: -24px -68px;
+}
+
+.upload-task-list .upload-cancel{
+	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px -34px;
+}
+.upload-task-list .upload-error{
+	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px -17px;
+}
+.upload-task-list .error-handle{
+	position: relative;
+	left: 0px;
+	top:0px;
+	height: 35px;
+	width: 100%;
+	line-height: 35px;
+	background: #fafafa;
+	text-align: center;
+	font-size:12px;
+	display: none;
+	border-top: 1px solid #d1d1d1;
+}
+.upload-task-list .error-handle .message{
+	color: #e36507;
+}
+
+.upload-plug-msg {
+	width: 100%;
+	background: #fffac4;
+	border-width: 0 0 1px;
+}
+.upload-plug-msg-tip {
+	position: relative;
+	text-align: center;
+	height: 42px;
+	line-height: 42px;
+	border-bottom: 1px solid #d2d2d2;
+	color:#595959;
+}
+
+.icon-caution {
+	float: left;
+	margin: 5px 0 0 14px;
+	width: 22px;
+	height: 20px;
+	background: url(./img/icon20x20.png) -300px -120px no-repeat;
+}
+.upload-dialog .upload-plug-msg .tips-prx {
+	font-size: 14px;
+	width: 430px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.upload-dialog .upload-plug-msg .pic{
+	display: inline-block;
+	width: 37px;
+	height: 37px;
+	background: url(/js/module/upload/img/instal_pic.png) no-repeat center;
+	vertical-align: middle;
+}
+.upload-dialog .upload-plug-msg .two-pix-btn,
+.upload-dialog .upload-plug-msg .two-pix-btn:link,
+.upload-dialog .upload-plug-msg .two-pix-btn:visited {
+	padding: 1px 17px;
+	display: inline-block;
+	line-height: 26px;
+	height: 26px;
+	border: 1px solid #a7a7a7;
+	text-decoration: none;
+	border-radius: 1px;
+	color: #636363;
+	background: #F8F8F8;
+	cursor:pointer;
+	margin: 6px 22px 0 0;
+	float: right;
+}
+
+/*IE插件的安装引导页*/
+.lui-dialog .content-wraper .instal_wrapper #update_instruct2{display: none;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .left{width: 263px; height: 242px; vertical-align: middle; display: inline-block;margin: -5px 0 0 45px;background-image: url(/js/module/upload/img/instal_bg.gif);}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .left:hover{background-image: url(/js/module/upload/img/instal_bg_hover.gif);}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .left #instal_bg+img{display: none;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .right{vertical-align: top; display: inline-block;margin: 22px 0 0 33px;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .right h1{font-size: 24px;color: #585858;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .right h2{font-size: 16px;margin-top: 16px;line-height: 34px;color: #767676;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .right .never_appear{margin-top: 20px;}
+.lui-dialog .content-wraper .instal_wrapper .instal_instruction .right span{color: #767676;font-size: 14px;margin-left: 10px;vertical-align: middle;}
+.lui-dialog .content-wraper .instal_wrapper .instal_switch{text-align: center;margin-top: 20px;}
+.lui-dialog .content-wraper .instal_wrapper .instal_switch .switch{display: inline-block;margin: 0 110px;}
+.lui-dialog .content-wraper .instal_wrapper .instal_switch .switch:hover{color: blue;}
+.lui-dialog .content-wraper .instal_wrapper .instal_switch .switch img{vertical-align: middle;}
+.lui-dialog .content-wraper .instal_wrapper .instal_switch .switch span{font-size: 17px;cursor: pointer;}
+.lui-dialog .content-wraper .instal_wrapper .instal_download{padding: 19px 55px 23px;margin-top: 33px;border-top: 1px solid #ccc;}
+.lui-dialog .content-wraper .instal_wrapper .instal_download .word{font-size: 28px;color: #585858;vertical-align: middle;}
+.lui-dialog .content-wraper .instal_wrapper .instal_download .btn{display: inline-block;font-size: 19px;vertical-align: middle;background-color: #53b603;color: #FFFFFF;padding: 0 20px;border-radius: 3px;line-height: 38px;margin-left: 30px;margin-top: 2px;}
+.lui-dialog .content-wraper .instal_wrapper .instal_download .btn:hover{background-color: #67e500;}
+.lui-dialog .content-wraper .instal_wrapper .instal_download .btn:active{background-color: #418f01;}
+
+

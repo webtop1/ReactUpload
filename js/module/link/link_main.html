@@ -1,0 +1,109 @@
+<div class="link_body" id="link_body_wrapper">
+    <ul class="link_tab" id="link_tab">
+        <script type="text/x-handlebars-template" id="link_tmp_tab">
+            <li class="link_selected"><%=language('链接分享')%></li><li style="margin-left:-1px;"><%=language('邮件分享')%></li>
+        </script>
+    </ul>
+
+    <div class="link_share link_content" id="link_share_wrapper">
+        <script type="text/x-handlebars-template" id="link_tmp_share">
+            <div class="link_row">
+                <span class="link_url_span"><a target="_blank" href="<%=url%>"><%=url%></a>
+                    <span class="link_txt_password">
+                        <%if(password!=""){%>(<%=language('密码：')%><%=password%>)<%}%>
+                     </span>
+                </span>
+               <!--<%if(password!=""){%>(<%=language('密码:')%><%=password%>)<%}%>-->
+                <input type="button" class="link_button_copy" id="link_copy" name="copy" data-clipboard-text="<%=url%><%if(password!=""){%>(<%=language('密码:')%><%=password%>)<%}%>" value="<%=language('复制')%>" />
+            </div>
+            <H1><%=language('设置链接：')%></H1>
+            <div class="link_options">
+            <div class="link_row">
+                <%if(isfolder&&upload){%>
+                <input id="link_upload" name="linkAuth" <%if(!download&&!preview){%> disabled="disabled"<%}%> <%if(uploadCheck&&isfolder){%> checked="true"<%}%> type="checkbox"><span class="link_ml25"><%=language('允许上传')%></span>
+                <%}%>
+                <%if(download){%>
+                <input id="link_download" name="linkAuth" <%if(!upload&&!preview){%> disabled="disabled"<%}%> <%if(downloadCheck){%> checked="true" <%}%>  type="checkbox" > <span class="link_ml25"> <%=language('允许下载')%></span>
+                <%}%>
+                <%if(preview){%>
+                <input id="link_preview" name="linkAuth" <%if(previewCheck){%>  checked="true" <%}%> class="link_ml25" type="checkbox">  <%=language('允许预览文件')%>
+                <%}%>
+                <span class="link_err_msg"></span>
+            </div>
+                <hr class="link_line"/>
+            <div class="link_row" id="link_password_protocal">
+                <span class="col">
+                <input id="link_password_show" name="password" type="checkbox" <% if(password!=""){%> checked="true" <%}%> />
+                <%=language('添加密码')%>
+                </span>
+                <span id="link_pwd_context" class="<%if(password==""){%>none<%}%> link_row_context">
+                <span class="link_label_pwd"></span>
+                <input id="link_password" class="link_txt_input" type="text" value="<%=password%>" onpaste="return false">
+                <span class="link_err_msg"></span>
+                </span>
+            </div>
+                <hr class="link_line"/>
+            <div class="link_row relative" >
+                <span class="col" >
+                <input id="link_chk_expiration" name="chk_expiration" type="checkbox" <%if(expiration!=-1){%> checked="true" <%}%>>
+                <%=language('添加有效期')%>
+                </span>
+                <span id="link_exp_context" class="<%if(expiration==-1){%>none<%}%> link_row_context">
+                <span class="link_span_date"></span>
+                <input id="link_txt_expiration" readonly="true" class="link_txt_input relative" gldp-id="link_gldp" <%if(expiration!=-1){%> value="<%=expiration%>" <%}%>  name="txt_expiration" type="text"  >
+                <span class="link_date"></span>
+                <span id="link_em_days" class="link_em_days"><%=language('距离到期还有{0}天',expirationDays)%></span>
+                <!--<span id="link_em_days" class="link_em_days">
+                	<%if(expirationDays==-1){%><%=language('此外链已过有效期')%><%}%>
+                	<%if(expirationDays!=-1){%><%=language('距离到期还有{0}天',expirationDays)%><%}%>
+                </span>-->
+                <span class="link_err_msg"></span>
+                </span>
+                <div gldp-el="link_gldp" style="width:220px; height:170px;"> </div>
+            </div>
+                <hr class="link_line"/>
+            <div class="link_row textarea">
+                <textarea id="link_desc" class="link_share_desc" placeholder="<%=language('添加外链说明')%>" maxlength="300"><%=description%></textarea>
+            </div>
+            </div>
+        </script>
+    </div>
+
+
+    <div id="link_mail_wrapper" class="link_mail link_content">   	
+    </div>
+    <script type="text/x-handlebars-template" id="link_tmp_mail">
+			<div class="link_label"><span><%=language('发送此链接至：')%></span></div>
+			<div class="mail_input" style="position: relative;">
+		        <div type="text" class="link_transfer_addr" id="link_transfer_addr">
+		        	<p id="addr"><input type="text" placeholder="<%=language('点击或输入邮箱地址，多个地址以逗号或分号分隔')%>" id="addr_input"/></p>
+		        </div>
+		        <div id="link_mail_query" class="mail_query_box">
+		        	<div id="history_head">	        		
+		        		<span><%=language('历史记录')%></span>
+		        		<a href="javascript:" id="remove_all"><%=language('清空历史')%></a>
+		        	</div>
+		        	<ul id="historyList"></ul>
+		        	<div><%=language('网盘同事')%></div>
+		        	<ul id="queryList"></ul>
+		        </div>
+	        </div>
+			<div class="link_transfer_msg">
+				<div class="link_defaultInfo">
+					<div class="line1">
+						<span id="link_share_creator"></span>
+						<span><%=language('通过联想企业网盘，给您共享了：')%> “<i id="link_share_filename"></i>”</span>
+					</div>
+					<div class="line2">
+						<span style="display: none;"><%=language('提取密码：')%><i id="link_share_password"></i></span>
+						<span style="display: none;margin-left: 20px;"><%=language('有效期到：')%><i id="link_share_expireTime"></i></span>
+					</div>
+				</div>
+				<textarea class="link_mail_instruction" id="link_mail_instruction" placeholder="<%=language('添加附言（300字以内）')%>" maxlength="300"></textarea>
+			</div>
+			<div class="link_btn">
+				<span class="link_send btn" id="link_email_send"><%=language('发送')%></span>
+				<span class="link_cancel btn" id="link_email_cancel"><%=language('关闭')%></span>
+			</div>
+		</script>
+</div>

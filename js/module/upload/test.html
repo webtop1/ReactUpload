@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../seajs/2.1.1/sea-debug.js" ></script>
+    <script src="../../config.js" ></script>
+    <script src="build/react.js" ></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <link rel="stylesheet" href="css/task.css" />
+</head>
+<body>
+
+<div id="swfupload-holder">
+    <input type="file" id="test_upload_btn" multiple='multiple' />
+</div>
+
+<div id="container"></div>
+
+<script type="text/javascript">
+    window.uploadlist={};
+    seajs.use('upload/main.js',function(Main){
+        var params ={
+            uploadId:'test_upload_btn',
+            container:$('#container'),
+            getCurrentPath:function(){
+                return 'floder name';
+            },
+            getPathType:function(){
+                return 'ent';
+            },
+            getRegion:function(callback){
+                callback('http://10.100.121.67/upload');
+            },
+            getUploadUrl:function(callback){
+                callback('http://10.100.121.67/upload');
+            },
+            checkUploadAuth:function(callback){
+
+            },
+            update:function(){
+                reactFilelist&&reactFilelist.update();
+            }
+        };
+        var main=new Main(params);
+    });
+</script>
+<script src="src/upload_filelist.js" type="text/babel" ></script>
+</body>
+</html>

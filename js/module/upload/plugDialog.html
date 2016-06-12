@@ -1,0 +1,48 @@
+	<script type="text/x-handlebars-template" id="upload_dialog">
+		<div class="min-show">
+			<div class="bar-title">
+				<div class="min-progress"></div>
+				<div class="max-title f-l">
+					<span id="upload_txt"><%=language('正在传输：')%></span>
+					<span id="total_count"></span>
+					<span id="upload_progress"></span>
+				</div>
+				<div class="f-r op">
+					<span id="set-min"></span>
+					<span id="close-upload-task-list"></span>
+				</div>
+			</div>
+		</div>
+		<div class="line-1"></div>
+		<!--<div id="plugMsg" class="upload-plug-msg" style="display:none">
+			<div class="upload-plug-msg-tip clearfix">
+				<p id=""><span class="icon-caution"></span>
+					<span class="tips-prx ellipsis"><%=language('支持断点续传啦！建议您安装"上传控件"提高上传速度!')%></span>
+					<a class="two-pix-btn" href="/resource/ieUploader_v1.0.0.26.exe"><%=language('下载安装')%></a>
+				</p>
+			</div>
+		</div>-->
+		<!--<div id="plugReuploadMsg" class="upload-plug-msg" style="display:none">
+			<div class="upload-plug-msg-tip clearfix">
+				<p id=""><span class="icon-caution"></span>
+					<span class="tips-prx ellipsis"><%=language('您上次有中断未完成上传的文件，可以继续上传哦。')%></span>
+					<span id="allReUpload" class="two-pix-btn"><%=language('全部重传')%></span>
+				</p>
+			</div>
+		</div>-->
+		<div class="task-title">
+			<div class="f-l file"><%=language('文件')%></div>
+			<div class="f-l action"><%=language('类型')%></div>
+			<div class="f-l size"><%=language('大小')%></div>
+			<div class="f-l state"><%=language('状态')%></div>
+			<div class="f-l pause-all">
+				<a class="btn" id="pauseAll" href="javascript:;">&nbsp;&nbsp;<%=language('暂停所有')%></a>
+				<a class="btn" id="continueAll" href="javascript:;" style="display: none;">&nbsp;&nbsp;<%=language('继续所有')%></a>
+			</div>
+		</div>
+		<!--<div class="error-handle">
+			<div class="message">文件过大</div>
+		</div>-->
+		<div class="line-1"></div>
+		<div class="file-list"></div>
+	</script>

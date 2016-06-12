@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="telephone=no" name="format-detection" />
+    <title></title>
+    <link href="https://box.lenovo.com/css/theme/default/dialog.css" rel="stylesheet" />
+</head>
+<body>
+<div id="test_wrapper"></div>
+<script src="../../../../js/seajs/2.1.1/sea.js"></script>
+<script src="../../../../js/config.js"></script>
+<script>
+    seajs.use(['jquery','dialog','/js/module/link/src/link_main'],function($,dialog,linkMain){
+       var d=new dialog('外链分享',{minHeight:420,minWidth:486},function(content){
+           var data = {
+               "access_mode": 2047,
+               "code": "90735f4899da48028599b6e151a863a3",
+               "counter_download": 17,
+               "counter_preview": 63,
+               "counter_upload": 0,
+               "ctime": "2015-08-20T16:57:13+0800",
+               "description": "",
+               "expiration": -1,
+               "has_password": false,
+               "id": 2218,
+               "mime_type": "other/",
+               "mode": "wrp",
+               "mtime": "2015-08-25T10:36:57+0800",
+               "neid": 1338498,
+               "nsid": 26413,
+               "password": "z3fr",
+               "path": "/1111",
+               "root": "databox",
+               "time_util": null,
+               "type": "dir",
+               "url": "http://10.100.125.177:80/l/9nA9p6",
+               "creator": "fenghao"
+           };
+           data.upload=true;
+           data.preview=true;
+           data.download=true;
+           data.wrapper=content;
+           data.baseurl=g_origin;
+           var link=new linkMain(data);
+           link.init();
+       })
+    });
+</script>
+</body>
+</html>

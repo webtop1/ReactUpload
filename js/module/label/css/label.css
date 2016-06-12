@@ -1,0 +1,7 @@
+.label_body { font-size: 12px;}
+.label_title {font-size: 13px; font-weight: bold;}
+
+.label_add_wrapper{height: 100px; display: block; word-break: break-all;width: 460px;}
+.label_add_wrapper span{display:inline-block; float: left; background: #e2e2e2; border-radius: 3px; margin: 3px;padding: 4px; }
+.label_add_wrapper i { display: inline-block; width: 25px; height: 15px; background: url(../img/cancel.png) no-repeat; cursor: pointer; }
+.label_add_wrapper input {border: none; float: left;}

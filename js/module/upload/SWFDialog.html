@@ -1,0 +1,40 @@
+	<script type="text/x-handlebars-template" id="upload_dialog">
+		<div class="min-show">
+			<div class="bar-title">
+				<div class="min-progress"></div>
+				<div class="max-title f-l">
+					<span id="upload_txt"><%=language('正在上传')%></span>
+					<span id="total_count"></span>
+					<span id="upload_progress"></span>
+				</div>
+				<div class="f-r op">
+					<span id="set-min"></span>
+					<span id="close-upload-task-list"></span>
+				</div>
+			</div>
+		</div>
+		<div class="line-1"></div>
+		<!--<div id="plugMsg" class="upload-plug-msg" style="display:none">
+			<div class="upload-plug-msg-tip clearfix">
+				<p id="">
+					<span class="pic"></span>
+					<span class="tips-prx ellipsis"><%=language('极速插件：支持高速上传下载、断点续传、批量传输')%></span>
+					<a class="two-pix-btn" href="/resource/IEPlugin/LenovoSuperPlugin_v1.0.0.30.exe"><%=language('点击下载')%></a>
+				</p>
+			</div>
+		</div>-->
+		<div class="task-title">
+			<div class="f-l file"><%=language('文件')%></div>
+			<div class="f-l progress"><%=language('进度')%></div>
+			<div class="f-l size"><%=language('大小')%></div>
+			<div class="f-l time"><%=language('剩余时间')%></div>
+			<div class="f-l">
+				<a class="btn" id="cancelAll" href="javascript:;">&nbsp;&nbsp;<%=language('取消所有')%></a>
+			</div>
+		</div>
+		<div class="error-handle">
+			<div class="message"></div>
+		</div>
+		<div class="line-1"></div>
+		<div class="file-list"></div>
+	</script>
