@@ -123,7 +123,14 @@
 					id:file.id,
 					percent:percent,
 					loaded:bytesLoaded,
-					total:bytesTotal
+					bytes:bytesTotal,
+					name:file.name,
+					path:'',
+					file:file,
+					isUpload:false,
+					startUploadTime:new Date(),
+					timeRemaining:'-',
+					status: '-'
 				};
 				index.updateFilelist(params);
 			},
@@ -223,7 +230,7 @@
 			},
 			//当一次文件上传的流程完成时（不管是成功的还是不成功的）会触发该事件，该事件表明本次上传已经完成，上传队列里的下一个文件可以开始上传了。该事件发生后队列中下一个文件的上传将会开始
 			upload_complete_handler : function(file) {
-				index.fileList.updateHead();
+				index.updateFilelist({});
 			},
 			swfupload_loaded_handler : function(){},
 

@@ -28,10 +28,10 @@
 }
 .col-bar-filename{ width: 251px; margin-left: 21px;}
 .col-filename{ width: 230px;}
-.col-progress{width: 170px;}
-.col-size{width: 80px;}
-.col-time{width: 85px;}
-.col-operate{width: 70px;}
+.col-progress{width: 170px;text-align: center;}
+.col-size{width: 80px;text-align: center;}
+.col-time{width: 85px;text-align: center;}
+.col-operate{width: 70px; text-align: center;}
 
 .upload-task-list a {cursor: pointer;}
 
@@ -117,7 +117,6 @@
     width: 128px;
     overflow: hidden;
     white-space:nowrap;
-    margin-left: 20px;
 }
 .upload-task-list .progress.error{
 	width:258px;
@@ -210,6 +209,27 @@
     background: #d8e8ff;
     z-index:-1;
 }
+.upload-task-list .progress {
+	display: inline-block;
+	background-color: #f2b01e;
+	position: relative;
+	line-height: 16px;
+	text-align: center;
+	color: white;
+	font-size: 10px;
+	border-radius: 4px;
+	-webkit-transition: 0.4s linear;
+	-moz-transition: 0.4s linear;
+	-o-transition: 0.4s linear;
+	transition: 0.4s linear;
+	-webkit-transition-property: width, background-color;
+	-moz-transition-property: width, background-color;
+	-o-transition-property: width, background-color;
+	transition-property: width, background-color;
+	-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
 .upload-task-list .btn{
     text-decoration: none;
     color: #157bf8;

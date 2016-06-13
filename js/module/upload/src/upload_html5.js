@@ -152,13 +152,17 @@ define('upload/src/upload_html5', function (require, exports) {
             var scale = fileObj.loaded / 1024 / seconds;
             var remain = fileObj.file.size / 1024 / scale - seconds;
             remain=parseInt(remain);
-            fileObj.timeRemaining = remain?remain:'-';
+            if(remain<0||remain==0){
+                remain='';
+            }
+            fileObj.timeRemaining = remain ;
             //更新进度
             var per = parseInt(fileObj.loaded / fileObj.file.size * 100);
             if (per > 100) {
                 per = 100;
                 fileObj.loaded = fileObj.file.size;
             }
+            per.percent=per;
             self.update();
     //            self.main.fileList.update(fileObj, per, fileObj.loaded, fileObj.file.size);
         },
@@ -579,7 +583,7 @@ define('upload/src/upload_html5', function (require, exports) {
                                     needed_block: [result.hash],
                                     isUpload: true,
                                     offset: 0,
-                                    upload_id: retVal.data.upload_id
+                                    upload_id: result.upload_id
                                 });
                                 self.updateProcess(xhr.fileId);
                                 var nextTrunk = self.getNextTrunk(xhr.fileId);
@@ -766,6 +770,7 @@ define('upload/src/upload_html5', function (require, exports) {
                             id: obj.id,
                             name: obj.name,
                             bytes: obj.size,
+                            size:Util.formatBytes(obj.size),
                             loaded: 0,
                             path: rootPath + '/' + obj.name,
                             path_type: self.getPathType(),
@@ -773,7 +778,8 @@ define('upload/src/upload_html5', function (require, exports) {
                             file: obj,
                             isUpload:false,
                             startUploadTime:new Date(),
-                            status: '-'
+                            status: '-',
+                            percent:1
                         });
                         /*if(res.code !=200 ){
                             self.main.fileList.fail(obj,res.message);
@@ -819,10 +825,10 @@ define('upload/src/upload_html5', function (require, exports) {
             fileObj.isUpload=true;
             var file = fileObj.file;
             Util.log("upload complete，file id: " + fileId);
-            self.main.fileList.complete(file);
-            self.main.fileList.updateHead();
+          /*  self.main.fileList.complete(file);
+            self.main.fileList.updateHead();*/
             self.setListStatus('-');
-            self.deleteFile(fileId);
+            //self.deleteFile(fileId);
             self.chunkedUpload();
             self.updateFilelistTitle();
         },

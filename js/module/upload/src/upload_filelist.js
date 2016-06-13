@@ -82,15 +82,21 @@ var FilelistItem = React.createClass({
         $('#container').trigger('cancel-one',[this.props.data]);
     },
     render: function () {
+        var operateBtn=<a onClick={this.cancel}>删除</a>;
+        if(this.props.data.percent===1){
+            operateBtn="完成";
+        }
         return (
             <li>
                 <div className="task-file" id="task_swfupload_{this.props.data.id}" >
                     <div className="f-l col-icon pic"></div>
                     <div className="f-l col-filename"  title = {this.props.data.name}> {this.props.data.name}</div>
-                    <div className="f-l col-progress"  title = {this.props.data.name}><span className="progress">{this.props.data.loaded}</span></div>
-                    <div className="f-l col-size" >{this.props.data.bytes}</div>
+                    <div className="f-l col-progress"  title = {this.props.data.name}><span className="progress" style = {{width:this.props.data.percent*100}} >{this.props.data.percent*100}%</span></div>
+                    <div className="f-l col-size" >{this.props.data.size}</div>
                     <div className="f-l col-time" >{this.props.data.timeRemaining}</div>
-                    <div className="f-l col-operate" ><a onClick={this.cancel}>删除</a></div>
+                    <div className="f-l col-operate" >
+                        {operateBtn}
+                    </div>
                 </div>
             </li>
         );

@@ -5,7 +5,10 @@
         require("jquery");
         require('i18n');
 
+    var self;
+
     function main(options){
+        self=this;
         this.options=options;
         for(var o in options){
             this[o]=options[o];
@@ -52,7 +55,37 @@
             uploadlist.files.push(params);
         },
         updateFilelist:function(params){
-
+            if(params.id&&!this.getFile(params.id)){
+                this.addFile(params);
+            }
+        },
+        /**
+         * 添加文件到uploadlist
+         * @param params
+         */
+        addFile: function (params) {
+            if (!uploadlist.files) {
+                uploadlist.files = [];
+            }
+            uploadlist.files.push(params);
+            if(self.update){
+                self.update();
+            }
+        },
+        /**
+         * 获取uploadlist单个文件
+         * @param fileId
+         * @returns {*}
+         */
+        getFile: function (fileId) {
+            var fileObj;
+            for (var o in uploadlist.files) {
+                if (uploadlist.files[o].id == fileId) {
+                    fileObj = uploadlist.files[o];
+                    break;
+                }
+            }
+            return fileObj;
         }
     });
 
