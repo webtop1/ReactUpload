@@ -19,7 +19,7 @@
         },
         render:function(){
             var self = this;
-            if(!self.isSupportHTML5()){
+            if(self.isSupportHTML5()){
                 require.async('upload/src/upload_html5',function (upload_html5) {
                     self.uploadHtml5 = new upload_html5(self.options);
                 })
