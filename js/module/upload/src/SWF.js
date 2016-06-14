@@ -4,13 +4,13 @@
 		_ = $.i18n.prop,
 		Util = require('util'),
 		Tips = require('component/tips'),
-		AuthUploadManager = require('lenovodata/model/AuthUploadManager'),
 		flashCheckDialog = require('component/flashCheckDialog');
 	require('cookie');
 	require('i18n');
 	require('swfupload/swfupload.js');
 	require('swfupload/plugins/swfupload.queue.js');
 	require('swfupload/plugins/swfupload.speed.js');
+	var thisref;
 
 	function SWF(node, index){
 		var DEFAULT = {
@@ -18,20 +18,18 @@
 			image: false,
 			buttonText: false
 		};
-//		opt = $.extend(DEFAULT, opt);
 		var language = $.cookie('language');
-		var imageUrl = '/css/theme/default/img/upload_transparent.png';
+		var imageUrl = 'img/upload-zh.png';
 		this.setting = {
 			// Backend Settings
-			upload_url: '',
-
+			upload_url: 'aaaaaa',
 			// File Upload Settings
 			file_size_limit : "1048576",	// 默认KB单位，1G
 			file_types_description : "All Files",
 			file_upload_limit : "0",
 			file_queue_limit : "100",
 			buttonImageURL:imageUrl,
-      moving_average_history_size: 40,
+            moving_average_history_size: 40,
 
 			// 在文件选取窗口将要弹出时触发
 			file_dialog_start_handler : function(){},
@@ -105,13 +103,14 @@
 			file_dialog_complete_handler : function(numFilesSelected, numFilesQueued) {
 				var self = this;
 				index.getUploadUrl(function (url) {
-					index.uploadURL=url;
+					thisref.uploadURL=url;
 					self.startUpload();
 				});
 			},
 			//当文件即将上传时会触发该事件,该事件给了你在文件上传前的最后一次机会来验证文件信息、增加要随之上传的附加信息或做其他工作。可以通过返回false来取消本次文件的上传，参数file为当前要上传的文件的信息对象
 			upload_start_handler : function(file) {
 				var self = this;
+				var url=thisref.makeURL(file);
 				index.checkUploadAuth(function(){
 					self.setUploadURL(url);
 				});
@@ -121,9 +120,10 @@
 				var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
 				var params={
 					id:file.id,
-					percent:percent,
+					percent:percent/100,
 					loaded:bytesLoaded,
 					bytes:bytesTotal,
+					size:Util.formatBytes(bytesTotal),
 					name:file.name,
 					path:'',
 					file:file,
@@ -223,9 +223,21 @@
 					var message = data.message;
 					index.fileList.fail(file, message);
 				} else {
-					index.fileList.complete(file);
-					index.fileList.flushPage();
-					index.succeed++;
+					var params={
+						id:file.id,
+						percent:file.percentUploaded/100,
+						loaded:file.size,
+						bytes:file.size,
+						size:Util.formatBytes(file.size),
+						name:file.name,
+						path:'',
+						file:file,
+						isUpload:true,
+						startUploadTime:new Date(),
+						timeRemaining:file.timeRemaining,
+						status: '-'
+					};
+					index.updateFilelist(params);
 				}
 			},
 			//当一次文件上传的流程完成时（不管是成功的还是不成功的）会触发该事件，该事件表明本次上传已经完成，上传队列里的下一个文件可以开始上传了。该事件发生后队列中下一个文件的上传将会开始
@@ -254,6 +266,10 @@
 			debug: false
 //			http_success:[403,405]
 		};
+		for (var o in index) {
+			this[o] = index[o];
+		}
+		thisref=this;
 	}
 
 	$.extend(SWF.prototype, {
@@ -265,9 +281,36 @@
 				is.destroy();
 			});
 			if(flashCheckDialog.checkFlash()){
-				return new SWFUpload(this.setting);
+				thisref.SWFUploadObj = new SWFUpload(this.setting);
+				return thisref.SWFUploadObj;
 			}
 			return null;
+		},
+		makeURL: function(file) {
+			if(!file){return;}
+			var	params = [];
+			var name = file.name;
+			var path = thisref.getCurrentPath();
+			path != '' && (path = path + '/');
+			var data = {
+				directory: path,
+				file: name
+			};
+			var l_cookie = $.cookie('X-LENOVO-SESS-ID');
+			var l_language = $.cookie('language');
+			var uid = Util.getUserID();
+			var prefix="";
+			/*if(fileManager.fa.data){
+				prefix ="prefix_neid="+fileManager.fa.data.prefix_neid+"&";
+				prefix +="from="+fileManager.fa.data.from +"&";
+			}*/
+			var url=thisref.uploadURL+'/v2/files/databox/{directory}{file}?X-LENOVO-SESS-ID='+l_cookie+'&uid='+uid+'&overwrite=true&source=file&language='+l_language+'&t=&path_type='+thisref.getPathType()+'&'+prefix;
+			var tempURL = url.replace(/\{([^\}]+)\}/g, function(s0, s1) {
+				return data[s1];
+			});
+			tempURL = encodeURI(tempURL);
+			tempURL = tempURL.replace(/#/g, '%23');
+			return tempURL;
 		}
 	});
 
