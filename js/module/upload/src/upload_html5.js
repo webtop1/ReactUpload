@@ -850,7 +850,7 @@ define('upload/src/upload_html5', function (require, exports) {
         /**
          *取消所有上传
          */
-        cancelAllUpload: function () {
+        stopUpload: function () {
             for (var o in uploadlist.files) {
                 uploadlist.files[o].status = 'cancel';
             }

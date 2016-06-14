@@ -14,11 +14,25 @@
             this[o]=options[o];
         }
         this.init();
+        this.event();
     }
 
     $.extend(main.prototype, {
         init: function(){
            this.render();
+        },
+        event:function(){
+            $('#container').on('cancel-one',function (evt,data) {
+                self.uploadPlug.cancelUpload(data.id);
+                self.update();
+            });
+
+            $('#container').on('cancel-all',function (evt) {
+                $(uploadlist.files).each(function(){
+                    self.uploadPlug.cancelUpload(this.id);
+                });
+                self.update();
+            });
         },
         render:function(){
             var self = this;
@@ -30,6 +44,7 @@
                    self.uploadPlug = new SWF('swfupload-holder', self).build();
             }
         },
+
         isSupportHTML5:function () {
             try {
                 if (typeof FileReader == "undefined") return false;
@@ -42,18 +57,22 @@
             }
             return true;
         },
+
         show:function(){
             $('#container').show();
         },
+
         hide:function(){
             $('#container').hide();
         },
+
         addFile:function(params){
             if (!uploadlist.files) {
                 uploadlist.files = [];
             }
             uploadlist.files.push(params);
         },
+
         updateFilelist:function(params){
             if(params.id&&!this.getFile(params.id)){
                 this.addFile(params);
@@ -64,6 +83,7 @@
                 self.update();
             }
         },
+
         /**
          * 添加文件到uploadlist
          * @param params
