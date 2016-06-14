@@ -82,9 +82,9 @@ var FilelistItem = React.createClass({
         $('#container').trigger('cancel-one',[this.props.data]);
     },
     render: function () {
-        var operateBtn=<a onClick={this.cancel}>删除</a>;
+        var operateBtn=<span className="upload-cancel" onClick={this.cancel}> </span>;
         if(this.props.data.percent===1){
-            operateBtn="完成";
+            operateBtn=<span className='upload-success'> </span>;
         }
         return (
             <li>

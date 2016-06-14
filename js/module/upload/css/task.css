@@ -244,15 +244,26 @@
 	width:17px;
 	height:17px;
 	margin:10px 9px 0;
-	background:url("/js/module/upload/img/sprite_operate_btn.png") -2px -45px no-repeat;
+	background:url("../img/sprite_operate_btn.png") -2px -45px no-repeat;
 	cursor: pointer;
 }
 .upload-task-list .upload-success{	
-	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px 0px;
+	background:url("../img/upload-icon.png") no-repeat 0px 0px;
+	height: 17px;
+	width: 30px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 }
 .upload-task-list .upload-cancel{
 	
 	background-position: -3px -46px;
+	height: 17px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 }
 .upload-task-list .open-file{
 	
@@ -296,10 +307,22 @@
 }
 
 .upload-task-list .upload-cancel{
-	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px -34px;
+	background:url("../img/upload-icon.png") no-repeat 0px -34px;
+	height: 17px;
+	width: 30px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 }
 .upload-task-list .upload-error{
-	background:url("/js/module/upload/img/upload-icon.png") no-repeat 0px -17px;
+	background:url("../img/upload-icon.png") no-repeat 0px -17px;
+	height: 17px;
+	width: 30px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 }
 .upload-task-list .error-handle{
 	position: relative;
@@ -337,7 +360,7 @@
 	margin: 5px 0 0 14px;
 	width: 22px;
 	height: 20px;
-	background: url(./img/icon20x20.png) -300px -120px no-repeat;
+	background: url(../img/icon20x20.png) -300px -120px no-repeat;
 }
 .upload-dialog .upload-plug-msg .tips-prx {
 	font-size: 14px;
@@ -350,7 +373,7 @@
 	display: inline-block;
 	width: 37px;
 	height: 37px;
-	background: url(/js/module/upload/img/instal_pic.png) no-repeat center;
+	background: url(../img/instal_pic.png) no-repeat center;
 	vertical-align: middle;
 }
 .upload-dialog .upload-plug-msg .two-pix-btn,

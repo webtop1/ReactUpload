@@ -109,16 +109,6 @@ define('upload/src/upload_html5', function (require, exports) {
                 $('#'+self.uploadId)[0].addEventListener('change', self.handleDrop, false);
             }
 
-            $('#container').on('cancel-one',function (evt,data) {
-                self.deleteFile(data.id);
-                self.update();
-            });
-
-            $('#container').on('cancel-all',function (evt,data) {
-                self.cancelAllUpload();
-                self.update();
-            });
-
         },
         /**
          * 停止事件冒泡
