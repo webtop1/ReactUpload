@@ -4,7 +4,6 @@
         require("upload/css/task.css");
         require("jquery");
         require('i18n');
-
     var self;
 
     function main(options){

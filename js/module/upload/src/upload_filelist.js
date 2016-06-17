@@ -102,8 +102,7 @@ var FilelistItem = React.createClass({
         );
     }
 });
-
-window.reactFilelist  = ReactDOM.render(
+    seajs.reactFilelist  = ReactDOM.render(
     <UploadFilelist data={uploadlist?uploadlist:{}}/>,
-    document.getElementById('container')
+     document.getElementById('container')
 );
